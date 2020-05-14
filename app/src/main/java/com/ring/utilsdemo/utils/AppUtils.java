@@ -57,4 +57,30 @@ public class AppUtils {
         return null;
     }
 
+    /**
+     * 版本比较
+     *
+     * @param nowVersion    app版本
+     * @param serverVersion 服务器版本
+     * @return
+     */
+    public static boolean compareVersion(String nowVersion, String serverVersion) {
+        if (nowVersion != null && serverVersion != null) {
+            String[] nowVersions = nowVersion.split("\\.");
+            String[] serverVersions = serverVersion.split("\\.");
+            if (nowVersion != null && serverVersion != null && nowVersions.length > 1 && serverVersions.length > 1) {
+                int nowVersionFirst = Integer.parseInt(nowVersions[0]);
+                int serverVersionFirst = Integer.parseInt(serverVersions[0]);
+                int nowVersionSecond = Integer.parseInt(nowVersions[1]);
+                int serverVersionSecond = Integer.parseInt(serverVersions[1]);
+                if (nowVersionFirst < serverVersionFirst) {
+                    return true;
+                } else if (nowVersionFirst == serverVersionFirst && nowVersionSecond < serverVersionSecond) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
