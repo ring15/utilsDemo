@@ -72,4 +72,10 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="SliderVerifyView">
+        <attr name="sliderHeight" format="dimension"/>
+        <attr name="sliderWidth" format="dimension"/>
+        <attr name="deviation" format="dimension"/>
+    </declare-styleable>
+
 </resources>

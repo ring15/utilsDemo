@@ -25,7 +25,7 @@
     <com.ring.utilsdemo.weight.VoiceLineView
         android:id="@+id/voicLine"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="80dp"
         android:layout_above="@+id/iv_voice"
         android:background="@android:color/transparent"
         app:fineness="three"
@@ -35,5 +35,17 @@
         app:middleLineHeight="1dp"
         app:sensibility="five"
         app:voiceLine="@android:color/white" />
+
+    <com.ring.utilsdemo.weight.SliderVerifyView
+        android:id="@+id/verify_view"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_slider"
+        app:sliderHeight="30dp"
+        app:sliderWidth="30dp" />
 
 </LinearLayout>
