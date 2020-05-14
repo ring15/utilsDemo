@@ -78,4 +78,21 @@
         <attr name="deviation" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="StepView">
+        <attr name="completedLineColor" format="color"/>
+        <attr name="unCompletedLineColor" format="color"/>
+        <attr name="completedTextColor" format="color"/>
+        <attr name="unCompletedTextColor" format="color"/>
+        <attr name="completedIcon" format="reference"/>
+        <attr name="unCompletedIcon" format="reference"/>
+        <attr name="completingIcon" format="reference"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="lineSize" format="dimension"/>
+        <attr name="oriental" format="enum">
+            <enum name="horizon" value="1"/>
+            <enum name="vertical_positive" value="2"/>
+            <enum name="vertical_reverse" value="3"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

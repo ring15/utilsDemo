@@ -48,4 +48,21 @@
         app:sliderHeight="30dp"
         app:sliderWidth="30dp" />
 
+    <com.ring.utilsdemo.weight.StepView
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="#00BEAF"
+        app:completedIcon="@drawable/complted"
+        app:completedLineColor="@android:color/white"
+        app:completedTextColor="@android:color/white"
+        app:completingIcon="@drawable/attention"
+        app:lineSize="40dp"
+        app:oriental="vertical_positive"
+        app:textSize="16sp"
+        app:unCompletedIcon="@drawable/default_icon"
+        app:unCompletedLineColor="#7fffffff"
+        app:unCompletedTextColor="#7fffffff" />
+
 </LinearLayout>
