@@ -21,4 +21,19 @@
         app:pressedColor="@color/colorAccent"
         app:rangeHeight="4dp"/>
 
+
+    <com.ring.utilsdemo.weight.VoiceLineView
+        android:id="@+id/voicLine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/iv_voice"
+        android:background="@android:color/transparent"
+        app:fineness="three"
+        app:lineSpeed="90"
+        app:maxVolume="100"
+        app:middleLine="@android:color/white"
+        app:middleLineHeight="1dp"
+        app:sensibility="five"
+        app:voiceLine="@android:color/white" />
+
 </LinearLayout>
