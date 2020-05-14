@@ -1,0 +1,46 @@
+<resources>
+
+    <declare-styleable name="RangeBar">
+        <!-- 模式选择，seekBar则没有等级，关于等级的设置也将无效 -->
+        <attr name="mode" format="enum">
+            <enum value="0" name="seekBar"/>
+            <enum value="1" name="rangeBar"/>
+        </attr>
+        <!--选择指示图标为图片或者圆形 -->
+        <attr name="imgType" format="enum">
+            <enum name="img" value="0"/>
+            <enum name="circle" value="1"/>
+        </attr>
+        <attr name="rangePosition" format="enum">
+            <enum name="center" value="0"/>
+            <enum name="up" value="1"/>
+            <enum name="down" value="2"/>
+        </attr>
+
+        <!-- 指示图标为图片时的三种状态 -->
+        <attr name="disableImg" format="reference"/>
+        <attr name="normalImg" format="reference"/>
+        <attr name="pressedImg" format="reference"/>
+
+        <!-- 半径 -->
+        <attr name="imgRadio" format="dimension"/>
+
+        <!-- 指示图标为圆形时的三种颜色 -->
+        <attr name="disableColor" format="color"/>
+        <attr name="normalColor" format="color"/>
+        <attr name="pressedColor" format="color"/>
+
+        <!-- 横向的颜色和高度 -->
+        <attr name="unSelectLineColor" format="color"/>
+        <attr name="selectLineColor" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+
+        <!-- 等级的数量、颜色和高度 -->
+        <attr name="rangeItem" format="integer"/>
+        <attr name="rangeUnSelectedColor" format="color"/>
+        <attr name="rangeSelectedColor" format="color"/>
+        <attr name="rangeHeight" format="dimension"/>
+        <attr name="rangeWidth" format="dimension"/>
+    </declare-styleable>
+
+</resources>
