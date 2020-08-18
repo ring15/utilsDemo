@@ -1,13 +1,19 @@
 package com.ring.utilsdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ring.utilsdemo.observe.Consumer;
+import com.ring.utilsdemo.observe.Emitter;
+import com.ring.utilsdemo.observe.Function;
+import com.ring.utilsdemo.observe.Observable;
+import com.ring.utilsdemo.observe.ObservableOnSubscribe;
+import com.ring.utilsdemo.observe.Observer;
 import com.ring.utilsdemo.utils.EquipmentUtil;
 import com.ring.utilsdemo.utils.MacUtil;
 import com.ring.utilsdemo.utils.NetUtils;
@@ -19,6 +25,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         NetUtils.init(this);
+    }
+
+    private void observe() {
+
+        Observable
+                .create(new ObservableOnSubscribe<String>() {
+                    @Override
+                    public void subscribe(Emitter<String> emitter) throws Exception {
+//                        mModel.requestRegister(mobile, mobileCodeKey, emitter);//数据请求
+                    }
+                })
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String user) throws Exception {
+//                        user.setUserType(Constants.REQUEST_TYPE_USER);//类型转换
+                        return user;
+                    }
+                })
+                .doOnNext(new Consumer<String>() {
+                    @Override
+                    public void accept(String user) throws Exception {
+//                        mModel.saveUser(user);//缓存操作
+                    }
+                })
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onNext(String value) {
+//                        if (isViewAttached()) {
+//                            mView.startNextActivity();
+//                        }//成功的逻辑处理
+                    }
+
+                    @Override
+                    public void onError(Exception error) {
+//                        if (isViewAttached()) {
+//                            mView.showErrorMsg(error);
+//                        }//异常的逻辑处理
+                    }
+                });
     }
 
     private void init() {
@@ -72,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "ipv6:" + EquipmentUtil.getIpv6Addr());
         Log.i(TAG, "设备ID:" + EquipmentUtil.getAndroidID(this));
         Log.i(TAG, "UserAgent:" + EquipmentUtil.getUserAgent(this));
-        Log.i(TAG, "VPN:" + (EquipmentUtil.isVpnUsed() ? "使用VPN":"未使用VPN"));
+        Log.i(TAG, "VPN:" + (EquipmentUtil.isVpnUsed() ? "使用VPN" : "未使用VPN"));
         Log.i(TAG, "地区（ISM）:" + EquipmentUtil.getLocation(this));
-        Log.i(TAG, "地区（net）:" + EquipmentUtil.getLocationNet(this) );
-        Log.i(TAG, "时区:" + EquipmentUtil.getTimeZone() );
+        Log.i(TAG, "地区（net）:" + EquipmentUtil.getLocationNet(this));
+        Log.i(TAG, "时区:" + EquipmentUtil.getTimeZone());
 
         String message = "系统参数：" + "\n" + "手机厂商：" + EquipmentUtil.getDeviceBrand() + "\n" +
                 "手机型号：" + EquipmentUtil.getSystemModel() + "\n" + "手机当前系统语言：" + EquipmentUtil.getSystemLanguage() +
@@ -106,11 +151,11 @@ public class MainActivity extends AppCompatActivity {
                 "wifi信息:" + EquipmentUtil.getWifiName(this) + "\n" +
                 "ipv6:" + EquipmentUtil.getIpv6Addr() + "\n" +
                 "设备ID:" + EquipmentUtil.getAndroidID(this) + "\n" +
-                "UserAgent:" + EquipmentUtil.getUserAgent(this) + "\n"+
-                "VPN:" + (EquipmentUtil.isVpnUsed() ? "使用VPN":"未使用VPN") + "\n"+
-                "地区（ISM）:" +  EquipmentUtil.getLocation(this) + "\n"+
-                "地区（net）:" + EquipmentUtil.getLocationNet(this) + "\n"+
-                "时区:" + EquipmentUtil.getTimeZone()  + "\n";
+                "UserAgent:" + EquipmentUtil.getUserAgent(this) + "\n" +
+                "VPN:" + (EquipmentUtil.isVpnUsed() ? "使用VPN" : "未使用VPN") + "\n" +
+                "地区（ISM）:" + EquipmentUtil.getLocation(this) + "\n" +
+                "地区（net）:" + EquipmentUtil.getLocationNet(this) + "\n" +
+                "时区:" + EquipmentUtil.getTimeZone() + "\n";
 
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clipData = ClipData.newPlainText("Label", message);
